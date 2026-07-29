@@ -19,3 +19,7 @@ console.log('258' + 10);
 console.log('123' !== 123);
 console.log(true + false);
 console.log(!!0);
+
+// alert('Hi');
+// console.log(confirm('Are you ready?'));
+// prompt('Hi');
