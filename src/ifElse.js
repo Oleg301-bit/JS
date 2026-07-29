@@ -17,4 +17,5 @@ switch (result) {
   case 'string':
     console.log(`${variant} is a strings`);
     break;
+  default:
 }
