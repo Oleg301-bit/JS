@@ -20,3 +20,6 @@ api - набор функций и методов который предост�
 - Core JS (type / operators / key-words / methods / objects / classes)
 - DOM (api) Document Object Model
 - BOM (api) Browser Object Model
+
+async - асинхронная загрузка , то есть паралельна
+defer - асинхронная загрузка но тут они зависят друг от друга
