@@ -127,3 +127,5 @@ for (; number <= 100; number++) {
   resutl += number;
 }
 console.log(resutl);
+
+
