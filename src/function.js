@@ -196,4 +196,74 @@
 
 // не использовать но знать
 
-let constFunction = new Function([]);
+//let constFunction = new Function([]);
+
+// Counter   ++a/a++ в чем разница
+// let count = 0;
+// function counter() {
+//   return ++count;
+// }
+// console.log(counter());
+// console.log(counter());
+// console.log(counter());
+// console.log(counter());
+
+// Counter VAR 2
+function counter() {
+  let count = 0;
+  return function () {
+    count++;
+    return count;
+  };
+}
+
+const counter1 = counter();
+const counter2 = counter();
+console.log(counter1());
+console.log(counter1());
+console.log('------------------');
+console.log(counter2());
+console.log(counter2());
+// замыкание это функция которая запоминает свои переменные и все внешние переменные и имеет к ним доступ
+/*
+{
+    let a;
+    leteEv = {
+        envRecord: {
+            a:undefined,
+            this
+        }
+        link => outerEnv    
+    }
+}
+*/
+// сборка мусора в JS
+// исходящие ссылки не мешают удалять,а входящие мешают
+// когда функцию вывзывают она ищет в локальном окружении
+// все фуекции с рождения обладают замыканием / не обладает которая создана с помощью конструктора new Function
+
+// Recursion
+// iteraction
+// function fib(n) {
+//   let fib1 = 1;
+//   let fib2 = 1;
+//   for (let i = 3; i <= n; i++) {
+//     const fibNext = fib1 + fib2;
+//     fib1 = fib2;
+//     fib2 = fibNext;
+//   }
+//   return fib2;
+// }
+// console.log(fib(10));
+
+// Fib recursion
+// function fibonacci(position) {
+//   if (position < 3) {
+//     return 1;
+//   }
+//   return fibonacci(position - 1) + fibonacci(position - 2);
+// }
+// console.log(fibonacci(10));
+
+// рекурсия - как читается код (упрощение алгоритма до того вида который будет понятен большенству разработчиков)
+
