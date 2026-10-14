@@ -202,36 +202,84 @@ function Car(brand, model, transmition, color) {
     return `This car is running on ${this.brand} ${this.model}`;
   };
 }
-
 const bmw = new Car('BMW', 'M4', 'Auto', 'Blue');
+
+const extendObj = {
+  maxSpeed: 350,
+  year: 2000,
+};
+const newBMW = Object.assign({}, bmw, extendObj);
 console.log(bmw);
+bmw.maxSpeed = 240;
+console.log(bmw);
+console.log(Object.getOwnPropertyDescriptor(bmw, 'color')); // все свойства это строки
+
+Object.defineProperty(bmw, 'minSpeed', {
+  value: 0,
+  enumerable: true,
+  writable: true,
+  configurable: true,
+});
+Object.seal(bmw);
+// Object.preventExtensions(bmw);
+Object.defineProperties(bmw, {
+  year: {
+    value: 1985,
+    writable: true,
+    enumerable: true,
+  },
+  maxSpeed: {
+    value: 350,
+  },
+});
+// знать своства object
+console.log(bmw);
+// delete bmw.minSpeed;
+// console.log(bmw);
+for (const key in bmw) {
+  console.log(key);
+}
 
 const arr = [];
 console.log(Array.isArray(bmw));
 
 // что такое примитивное значение
 
-const price = {
-  tea: 20,
-  coffee: 30,
-  meal: 50,
-  onion: 10,
-  waiter: 'Jhon Doe',
-  isPaid: false,
-};
-for (let key in price) {
-  console.log(`${key} : ${price[key]}`);
-}
-console.log('=======================================');
+// const price = {
+//   tea: 20,
+//   coffee: 30,
+//   meal: 50,
+//   onion: 10,
+//   waiter: 'Jhon Doe',
+//   isPaid: false,
+// };
+// for (let key in price) {
+//   console.log(`${key} : ${price[key]}`);
+// }
+// console.log('=======================================');
 
-function multPrice(bill) {
-  for (let key in bill) {
-    if (typeof bill[key] === 'number') {
-      bill[key] *= 2;
-    }
-  }
-}
-multPrice(price);
-for (let key in price) {
-  console.log(`${key} : ${price[key]}`);
-}
+// function multPrice(bill) {
+//   for (let key in bill) {
+//     if (typeof bill[key] === 'number') {
+//       bill[key] *= 2;
+//     }
+//   }
+// }
+// multPrice(price);
+// for (let key in price) {
+//   console.log(`${key} : ${price[key]}`);
+// }
+
+const objProto = Object.create(Array, {
+  numb: {
+    value: 20,
+    enumerable: true,
+    writable: true,
+  },
+  string: {
+    value: 20,
+    enumerable: true,
+    writable: true,
+  },
+});
+console.log(objProto);
