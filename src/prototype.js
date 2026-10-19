@@ -175,6 +175,7 @@ function MyArrProto() {
   };
   this.concat = function (...args) {
     const res = new MyArray();
+    this.forEach((el) => res.push(el));
     for (let i = 0; i < args.length; i++) {
       if (Array.isArray(args[i])) {
         res.push(...args[i]);
