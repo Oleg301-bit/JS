@@ -217,3 +217,28 @@ const person = ['Oleg', 'Doe'];
 let [fName, lName] = person;
 console.log(fName);
 console.log(lName);
+
+// distructure  array
+const info = {};
+const countryArr = ['Ukraine', 'Kiev', 1000, 200];
+
+const [country, capital, ...args] = countryArr;
+[info.country, info.capital, , info.area] = countryArr;
+
+// console.log(country);
+// console.log(capital);
+// console.log(...args);
+console.log(info);
+
+// distructure  object
+info.region = ['Dnipro', 'Zapp', 'Odessa'];
+let {
+  country: count,
+  capital: cap,
+  area,
+  region: [dnipro, zapp, odessa],
+} = info; // сначала что/ потом куда сохранить
+console.log(count);
+console.log(cap);
+console.log(area);
+console.log(dnipro, zapp, odessa);
