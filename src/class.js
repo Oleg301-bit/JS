@@ -21,6 +21,8 @@
 // --------------------Classes---------------------------
 //
 
+
+
 class MyArray {
   constructor(...args) {
     this.length = 0;
@@ -88,3 +90,4 @@ class MyArray {
 const myArrArr = new MyArray([2, 3], [4, [5, 6, [7, 8, [9, 10, [11, 12]]]]]);
 console.log(myArrArr.concat([5, 7], false, 'str'));
 // this - обькт переед точкой
+//  абстракция - 
