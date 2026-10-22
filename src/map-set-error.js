@@ -222,3 +222,38 @@ for (let key in myObj) {
 console.log(Object.keys(myObj)); // показывает массив ключей нашего обьекта
 console.log(Object.getOwnPropertyNames(myObj));
 console.log(myObj[mySuperSecretPassword]); // только так можно увидеть что находится внутри при символьном создании
+
+// протокол иитератор
+// обьекты не итерируемые!
+// iterator
+const user = {
+  fName: 'John',
+  lName: 'Doe',
+  age: 30,
+  email: 'j-dogn777@gmail.com',
+  phone: '+380(066)-864-22-99',
+};
+function iterFunction() {
+  const arrEntries = Object.entries(this);
+  let current = 0;
+  let last = arrEntries.length;
+  return {
+    next() {
+      if (current < last) {
+        return {
+          done: false,
+          value: arrEntries[current++],
+        };
+      }
+      return {
+        done: true,
+      };
+    },
+  };
+}
+user[Symbol.iterator] = iterFunction;
+const props = [...user];
+console.log(props);
+
+
+

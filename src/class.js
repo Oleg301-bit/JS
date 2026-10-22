@@ -20,8 +20,21 @@
 
 // --------------------Classes---------------------------
 //
-
-
+/**
+ * @param {MyArray} myArray
+ */
+class MyArrayIterator {
+  constructor(myArray) {
+    this.array = myArray;
+    this.count = 0;
+  }
+  next() {
+    return {
+      value: this.array[this.count++],
+      done: this.count > this.array.length,
+    };
+  }
+}
 
 class MyArray {
   constructor(...args) {
@@ -63,9 +76,10 @@ class MyArray {
       if (Array.isArray(args[i])) {
         res.push(...args[i]);
       } else if (MyArray.isMyArray(args[i])) {
-        for (let j = 0; j < args[i].length; j++) {
-          res.push(args[i][j]);
-        }
+        res.push(...args[i]);
+        // for (let j = 0; j < args[i].length; j++) {
+        //   res.push(args[i][j]);
+        // }
       } else {
         res.push(args[i]);
       }
@@ -85,9 +99,12 @@ class MyArray {
     });
     return newMyArray;
   }
+  [Symbol.iterator]() {
+    return new MyArrayIterator(this.myArray);
+  }
 }
 
 const myArrArr = new MyArray([2, 3], [4, [5, 6, [7, 8, [9, 10, [11, 12]]]]]);
 console.log(myArrArr.concat([5, 7], false, 'str'));
 // this - обькт переед точкой
-//  абстракция - 
+//  абстракция -
