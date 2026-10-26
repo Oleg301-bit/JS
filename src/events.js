@@ -1,5 +1,10 @@
 // method to add listener
 'use strict';
+
+// import { getNewRate as getRate } from './function.js';
+// import person, { user } from './function.js';
+import * as functions from './function.js'; // заключено все что импортируется с укащаного файла
+
 const secondPar = document.querySelector('#second-part');
 console.dir(secondPar);
 
@@ -94,6 +99,11 @@ function getNewRate(winnerRate, looserRate) {
     return winnerRate + Math.round((Math.abs(deltaRate) + 5) / 3);
   }
 }
-
-export default getNewRate; // экспортирую только эту функцию
+//export default getNewRate; // экспортирую только эту функцию
+console.log(functions.user);
+// console.log(functions.person); // с дефолтом фишка не проходит о импорте через звездочку
+console.log(functions.default) // а вот так работает
 // чекнуть приложение джс дерево по коду
+// модуль - это просто файл, один скрипт - один модуль
+
+

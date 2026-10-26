@@ -1,5 +1,5 @@
 'use strict';
-import getRate from './events.js';
+// import getRate from './events.js';
 // // если переменная обьявлена но не иницилизируема то они undefined
 // // функция это обьект первого класса
 
@@ -209,21 +209,21 @@ import getRate from './events.js';
 // console.log(counter());
 
 // Counter VAR 2
-function counter() {
-  let count = 0;
-  return function () {
-    count++;
-    return count;
-  };
-}
+// function counter() {
+//   let count = 0;
+//   return function () {
+//     count++;
+//     return count;
+//   };
+// }
 
-const counter1 = counter();
-const counter2 = counter();
-console.log(counter1());
-console.log(counter1());
-console.log('------------------');
-console.log(counter2());
-console.log(counter2());
+// const counter1 = counter();
+// const counter2 = counter();
+// console.log(counter1());
+// console.log(counter1());
+// console.log('------------------');
+// console.log(counter2());
+// console.log(counter2());
 // замыкание это функция которая запоминает свои переменные и все внешние переменные и имеет к ним доступ
 /*
 {
@@ -268,3 +268,17 @@ console.log(counter2());
 // рекурсия - как читается код (упрощение алгоритма до того вида который будет понятен большенству разработчиков)
 
 //Object.key - берет ключи обьекта и создает из них массив
+
+export const user = {
+  fName: 'Jhon',
+  lName: 'Doe',
+  age: 25,
+};
+
+const person = {
+  fName: 'Jane',
+  lName: 'Smith',
+  age: 20,
+};
+
+export default person;
